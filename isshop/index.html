@@ -22,7 +22,8 @@
         this.id = id;
       }
 
-      var head = "Список товаров";
+      var head = "ISSHOP";
+      var headList = "Список товаров";
       let inStockText = "На складе:";
       let priceText = "Цена:";
       var listProducts = [
@@ -69,7 +70,7 @@
       ];
 
       ReactDOM.render(
-        React.createElement(Isshop, { head, listProducts, inStockText, priceText }),
+        React.createElement(Isshop, { head, headList,  listProducts, inStockText, priceText }),
         document.getElementById("container")
       );
     </script>

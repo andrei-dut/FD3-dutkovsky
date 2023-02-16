@@ -3,6 +3,7 @@ var Isshop = React.createClass({
 
   propTypes: {
     head: React.PropTypes.string.isRequired,
+    headList: React.PropTypes.string.isRequired,
     inStockText: React.PropTypes.string.isRequired,
     priceText: React.PropTypes.string.isRequired,
     listProducts: React.PropTypes.arrayOf(
@@ -36,6 +37,7 @@ var Isshop = React.createClass({
     return React.DOM.div(
       { className: "Isshop" },
       React.DOM.h1({ className: "Isshop__head" }, this.props.head),
+      React.DOM.h3({ className: "Isshop__head-list" }, this.props.headList),
       React.DOM.div({ className: "Isshop_list-products" }, product)
     );
   },
