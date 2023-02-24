@@ -9,6 +9,15 @@
     overflow: hidden;
 }
 
+.Isshop_product:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 20%);
+}
+
+.Isshop_product.active {
+    box-shadow: 0px 0px 8px 2px #5db142;
+}
+
 .product_desc {
     padding: 0 10px;
 }
@@ -29,5 +38,19 @@
     font-size: 16px;
     line-height: 136%;
     color: #37492E;
+}
+
+.product__delete {
+    border: none;
+    margin-bottom: 1em;
+    background: #ff4b4b;
+    color: white;
+    border-radius: 8px;
+    padding: 2px 20px;
+
+}
+
+.product__delete:hover {
+    cursor: pointer;
 }
 

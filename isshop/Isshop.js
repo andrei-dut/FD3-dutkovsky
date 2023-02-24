@@ -17,31 +17,39 @@ var Isshop = React.createClass({
     ),
   },
 
+  getInitialState: function () {
+    return {
+      selectedProduct: null,
+      listProducts: this.props.listProducts,
+    };
+  },
+
+  selectProduct: function (id) {
+    this.setState({ selectedProduct: id });
+  },
+
+  deleteProduct: function (id) {
+    if(id === this.state.selectedProduct) {
+      this.setState({selectedProduct: null});
+    }
+    this.setState((state) => ({
+      listProducts: state.listProducts.filter((elem) => elem.id !== id),
+    }));
+  },
+
   render: function () {
-    let product = this.props.listProducts.map((item) =>
-<<<<<<< HEAD
+    let product = this.state.listProducts.map((item) =>
       React.createElement(Product, {
         key: item.id,
+        id: item.id,
         src: item.urlImg,
         name: item.name,
         inStockText: inStockText + " " + item.inStock,
         price: priceText + " " + item.price + " " + item.currency,
+        active: this.state.selectedProduct === item.id,
+        selectProduct: this.selectProduct,
+        deleteProduct: this.deleteProduct,
       })
-=======
-      React.DOM.div(
-        { className: "Isshop_wrap-product", key: item.id },
-        React.DOM.div(
-          { className: "Isshop_product"},
-          React.DOM.img({ className: "product__img", src: item.urlImg, alt: item.name }),
-          React.DOM.div(
-            { className: "product_desc" },
-            React.DOM.p({ className: "product__name" }, item.name),
-            React.DOM.p({ className: "product__in-stock" }, inStockText + " " + item.inStock),
-            React.DOM.p({ className: "product__price" },priceText + " " + item.price + " " + item.currency)
-          )
-        )
-      )
->>>>>>> 7955093999f28ab645657380650f93466979c1fd
     );
 
     return React.DOM.div(
