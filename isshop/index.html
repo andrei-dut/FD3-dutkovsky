@@ -9,11 +9,13 @@
     <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
     <script src="./Isshop.js"></script>
     <link rel="stylesheet" href="./Isshop.css" />
+    <script src="./Product.js"></script>
+    <link rel="stylesheet" href="./Product.css" />
   </head>
   <body>
     <div id="container"></div>
     <script>
-      function Product(name, price, currency, urlImg, inStock, id) {
+      function ProductObj(name, price, currency, urlImg, inStock, id) {
         this.name = name;
         this.price = price;
         this.currency = currency;
@@ -27,7 +29,7 @@
       let inStockText = "На складе:";
       let priceText = "Цена:";
       var listProducts = [
-        new Product(
+        new ProductObj(
           "Апельсин 1кг",
           3.6,
           "руб.",
@@ -35,7 +37,7 @@
           "200кг",
           1
           ),
-        new Product(
+        new ProductObj(
           "Яблоко 1кг",
           2.6,
           "руб.",
@@ -43,7 +45,7 @@
           "500кг",
           2
           ),
-        new Product(
+        new ProductObj(
           "Арбуз 1кг",
           3.6,
           "руб.",
@@ -51,7 +53,7 @@
           "170кг",
           3
           ),
-        new Product(
+        new ProductObj(
           "Лимон 1кг",
           4.7,
           "руб.",
@@ -59,7 +61,7 @@
           "80кг",
           4
           ),
-        new Product(
+        new ProductObj(
           "Дыня 1кг",
           5.3,
           "руб.",
