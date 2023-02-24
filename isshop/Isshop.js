@@ -19,6 +19,7 @@ var Isshop = React.createClass({
 
   render: function () {
     let product = this.props.listProducts.map((item) =>
+<<<<<<< HEAD
       React.createElement(Product, {
         key: item.id,
         src: item.urlImg,
@@ -26,6 +27,21 @@ var Isshop = React.createClass({
         inStockText: inStockText + " " + item.inStock,
         price: priceText + " " + item.price + " " + item.currency,
       })
+=======
+      React.DOM.div(
+        { className: "Isshop_wrap-product", key: item.id },
+        React.DOM.div(
+          { className: "Isshop_product"},
+          React.DOM.img({ className: "product__img", src: item.urlImg, alt: item.name }),
+          React.DOM.div(
+            { className: "product_desc" },
+            React.DOM.p({ className: "product__name" }, item.name),
+            React.DOM.p({ className: "product__in-stock" }, inStockText + " " + item.inStock),
+            React.DOM.p({ className: "product__price" },priceText + " " + item.price + " " + item.currency)
+          )
+        )
+      )
+>>>>>>> 7955093999f28ab645657380650f93466979c1fd
     );
 
     return React.DOM.div(
