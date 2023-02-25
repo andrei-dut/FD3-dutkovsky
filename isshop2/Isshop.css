@@ -1,0 +1,13 @@
+.Isshop__head, .Isshop__head-list {
+    text-align: center;
+}
+
+.Isshop_list-products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    padding: 24px 40px 0 16px;
+    margin: auto;
+    border: 1px solid #E3E3E3;
+}
