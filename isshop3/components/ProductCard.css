@@ -1,0 +1,23 @@
+.Isshop_wrap-product-card {
+    padding-top: 30px;
+}
+
+.product_info .info__img {
+    height: 60px;
+}
+.form_field {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.form_field label {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.form_field p {
+    margin: 0;
+    padding-left: 30px;
+    color: red;
+}

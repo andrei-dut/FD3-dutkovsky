@@ -3,7 +3,7 @@
 }
 
 .Isshop_product {
-    width: 205px;
+    width: 212px;
     box-shadow: 0px 4px 16px rgb(0 0 0 / 7%);
     border-radius: 10px;
     overflow: hidden;
@@ -40,17 +40,33 @@
     color: #37492E;
 }
 
-.product__delete {
-    border: none;
-    margin-bottom: 1em;
-    background: #ff4b4b;
-    color: white;
-    border-radius: 8px;
-    padding: 2px 20px;
-
+.product_btns {
+    display: flex;
 }
 
-.product__delete:hover {
+.product_btns button{
+    border: none;
+    margin-bottom: 1em;
+    color: white;
+    border-radius: 8px;
+    padding: 2px 10px;
+}
+
+.product_btns button:hover {
     cursor: pointer;
+}
+
+.product_btns button:disabled {
+    background: grey;
+    cursor: not-allowed;
+}
+
+.product__delete {
+    background: #ff4b4b;
+}
+
+.product__edit {
+    background: rgb(118, 210, 117);
+    margin-left: 10px;
 }
 
