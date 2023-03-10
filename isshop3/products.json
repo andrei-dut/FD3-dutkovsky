@@ -1,34 +1,34 @@
 [
   {
-    "name": "Апельсин 1кг",
+    "name": "Orange 1kg",
     "price": 3.6,
     "urlImg": "https://static.insales-cdn.com/images/products/1/7793/321060465/large_images.jpg",
     "inStock": 200,
     "id": 1
   },
   {
-    "name": "Яблоко 1кг",
+    "name": "Apple 1kg",
     "price": 2.6,
     "urlImg": "https://www.mke.ee/media/k2/items/cache/71eb40c6e10fdbaa3e624e1d14b1d15b_M.jpg",
     "inStock": 500,
     "id": 2
   },
   {
-    "name": "Арбуз 1кг",
+    "name": "Watermelon 1kg",
     "price": 3.6,
     "urlImg": "https://купить-семена-почтой.рф/upload/iblock/21a/d339c4b3_b59c_11e3_8325_3c4a92d5c739_3c337ea5_b5b8_11e3_8325_3c4a92d5c739.jpeg",
     "inStock": 170,
     "id": 3
   },
   {
-    "name": "Лимон 1кг",
+    "name": "Lemon 1kg",
     "price": 4.7,
     "urlImg": "https://jazdorov.com.ua/wp-content/uploads/2017/02/cd97e840718afbe1479b82a54c1c5c01.jpg",
     "inStock": 80,
     "id": 4
   },
   {
-    "name": "Дыня 1кг",
+    "name": "Melon 1kg",
     "price": 5.3,
     "urlImg": "https://semenapost.ru/upload/iblock/bd2/e035f759_faad_11e7_a7b4_d485645420e6_bcfbbcee_0dc2_11e8_a009_d485645420e6.jpeg",
     "inStock": 330,

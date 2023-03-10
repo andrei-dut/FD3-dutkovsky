@@ -44,21 +44,30 @@ class Isshop extends React.Component {
   };
 
   deleteProduct = (id) => {
-    if (id === this.state.selectedProduct) {
-      this.setState({ selectedProduct: null });
-    }
     this.setState((state) => ({
       productsArr: state.productsArr.filter((elem) => elem.id !== id),
+      selectedProduct: null,
+      codeMode: 0,
     }));
   };
 
   addProduct = (data) => {
-
+    let newProduct = data;
+    this.setState(({productsArr}) => {
+      let id = 0;
+      productsArr.forEach(element => {
+        id = element.id > id ? element.id : id;
+      });
+      newProduct.id = ++id; 
+      return (
+      {productsArr: [...productsArr, data], codeMode: 0}
+      )
+    })
   };
 
   editProduct = (data) => {
     this.setState(({productsArr,selectedProduct}) => (
-      {productsArr: productsArr.map(elem => elem.id === selectedProduct ? data : elem)}
+      {productsArr: productsArr.map(elem => elem.id === selectedProduct ? data : elem), codeMode: 2}
       ))
   };
 
@@ -68,7 +77,13 @@ class Isshop extends React.Component {
         (elem) => elem.id === this.state.selectedProduct
       );
     }
-    if (mode === 4) return {};
+    if (mode === 4) return {
+      name: "",
+      urlImg: "",
+      price: "",
+      inStock: "",
+    };
+
   };
 
   render() {
@@ -79,7 +94,7 @@ class Isshop extends React.Component {
         src={item.urlImg}
         name={item.name}
         inStockText={this.props.inStockText + " " + item.inStock}
-        price={this.props.priceText + " " + item.price + " " + "руб."}
+        price={this.props.priceText + " " + item.price + " " + "BYN"}
         active={this.state.selectedProduct === item.id}
         selectProduct={this.selectProduct}
         deleteProduct={this.deleteProduct}

@@ -25,11 +25,12 @@ class Product extends React.Component {
   };
 
   render() {
+    let disabledBtn = this.props.codeMode === 3 || this.props.codeMode === 4;
     return (
       <div className="Isshop_wrap-product">
         <div
           className={"Isshop_product" + (this.props.active ? " active" : "")}
-          onClick={() => this.props.codeMode === 3 ? null : this.props.selectProduct(this.props.id)}
+          onClick={() => disabledBtn ? null : this.props.selectProduct(this.props.id)}
         >
           <img
             className="product__img"
@@ -38,22 +39,22 @@ class Product extends React.Component {
           />
           <div className="product_desc">
             <p className="product__name">{this.props.name}</p>
-            <p className="product__in-stock">{this.props.inStockText} кг</p>
+            <p className="product__in-stock">{this.props.inStockText} kg</p>
             <p className="product__price">{this.props.price}</p>
             <div className="product_btns">
               <button
                 className="product__delete"
                 onClick={this.confirmDelete}
-                disabled={this.props.codeMode === 3}
+                disabled={disabledBtn}
               >
-                Удалить
+                Delete
               </button>
               <button
                 className="product__edit"
                 onClick={(e) => this.props.openEditProduct(e, this.props.id)}
-                disabled={this.props.codeMode === 3}
+                disabled={disabledBtn}
               >
-                Редактировать
+                Edit
               </button>
             </div>
           </div>
