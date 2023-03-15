@@ -1,7 +1,7 @@
 {
-  "name": "votesblock",
+  "name": "rainbowframe",
   "version": "1.0.0",
-  "description": "блок голосования",
+  "description": "rainbow frame",
   "main": "App.js",
   "scripts": {
     "build": ".\\node_modules\\.bin\\webpack",
