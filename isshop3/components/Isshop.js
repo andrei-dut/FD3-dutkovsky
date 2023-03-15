@@ -37,6 +37,7 @@ class Isshop extends React.Component {
   };
 
   changeCodeMode = (codeMode) => {
+    console.log(codeMode)
     this.setState(({ selectedProduct }) => ({
       codeMode,
       selectedProduct: codeMode === 4 ? null : selectedProduct,
@@ -67,7 +68,7 @@ class Isshop extends React.Component {
 
   editProduct = (data) => {
     this.setState(({productsArr,selectedProduct}) => (
-      {productsArr: productsArr.map(elem => elem.id === selectedProduct ? data : elem), codeMode: 2}
+      {productsArr: productsArr.map(elem => elem.id === selectedProduct ? data : elem), codeMode: 0}
       ))
   };
 

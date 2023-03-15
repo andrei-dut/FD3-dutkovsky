@@ -24,20 +24,18 @@ class ProductCard extends React.Component {
     url: this.props.product.urlImg,
     price: this.props.product.price,
     inStock: this.props.product.inStock,
-    error_name: false,
-    error_price: false,
-    error_url: false,
-    error_inStock: false,
-    disabledSubmit: false,
+    error_name: false || this.props.codeMode === 4,
+    error_price: false || this.props.codeMode === 4,
+    error_url: false || this.props.codeMode === 4,
+    error_inStock: false || this.props.codeMode === 4,
   };
 
   handlerFieldFrom = (e) => {
     let value = e.target.value;
     let id = e.target.id;
     let errorValid = this.checkValidate(id, value);
-    this.setState(
-      { [id]: value, [`error_${id}`]: errorValid, disabledSubmit: errorValid },
-      () => this.props.codeMode === 4 ? null : this.props.changeCodeMode(3)
+    this.setState({ [id]: value, [`error_${id}`]: errorValid }, () =>
+      this.props.codeMode === 4 ? null : this.props.changeCodeMode(3)
     );
   };
 
@@ -51,11 +49,10 @@ class ProductCard extends React.Component {
       price: this.state.price,
       inStock: this.state.inStock,
     };
-    if(addMode) {
+    if (addMode) {
       this.props.addProduct(formData);
-    }
-    else {
-      this.props.editProduct(formData)
+    } else {
+      this.props.editProduct(formData);
     }
   };
 
@@ -90,7 +87,11 @@ class ProductCard extends React.Component {
           </div>
         ) : (
           <div className="product_edit">
-            <h3 className="edit__head">{this.props.codeMode === 4 ? "Add new product" : "Edit exiting Product"}</h3>
+            <h3 className="edit__head">
+              {this.props.codeMode === 4
+                ? "Add new product"
+                : "Edit exiting Product"}
+            </h3>
             <p className="edit__id">ID: {this.props.product.id}</p>
             <form className="edit_form" onSubmit={this.submitForm}>
               <div className="form_field">
@@ -155,11 +156,25 @@ class ProductCard extends React.Component {
                   </p>
                 ) : null}
               </div>
-              <button onClick={(e) => {
-                e.preventDefault();
-                this.props.changeCodeMode(0)
-                }}>cancel</button>
-              <button type="submit" disabled={this.state.disabledSubmit}>{this.props.codeMode === 4 ? "Add" : "save"}</button>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  this.props.changeCodeMode(0);
+                }}
+              >
+                cancel
+              </button>
+              <button
+                type="submit"
+                disabled={
+                  this.state.error_name ||
+                  this.state.error_price ||
+                  this.state.error_url ||
+                  this.state.error_inStock
+                }
+              >
+                {this.props.codeMode === 4 ? "Add" : "save"}
+              </button>
             </form>
           </div>
         )}
