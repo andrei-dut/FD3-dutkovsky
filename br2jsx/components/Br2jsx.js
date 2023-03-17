@@ -8,10 +8,15 @@ class Br2jsx extends React.Component {
   }; 
 
   render() {
-    let lines = this.props.text.replace(/<br *?\/?>/g, " <br/> ").split(" ")
+    let lines = this.props.text.split(/<br *?\/?>/);
     return (
       <div className="Br2jsx">
-        {lines.map((line, i) => line === "<br/>" ? <br key={i}/> : line)}
+        {lines.reduce((prev, current, i) => {
+      let newLines = [...prev];
+      if(i) newLines.push(<br key={i}/>);
+      newLines.push(current);
+        return newLines;
+    }, [])}
       </div>
     );
   }
