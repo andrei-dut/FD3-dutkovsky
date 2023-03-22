@@ -1,0 +1,38 @@
+﻿.WrapClientsTable {
+  
+}
+.WrapClientsTable table {
+  border-collapse: collapse
+}
+.WrapClientsTable td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+.WrapClientsTable td.status.active {
+  background: green;
+}
+.WrapClientsTable td.status.blocked {
+  background: red;
+}
+
+.table-filter, .table__new-client{
+  margin: 20px 0;
+}
+
+.form_field {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.form_field label {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.form_field p {
+  margin: 0;
+  padding-left: 30px;
+  color: red;
+}
