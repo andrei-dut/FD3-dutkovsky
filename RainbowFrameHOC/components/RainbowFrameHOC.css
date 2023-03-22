@@ -1,0 +1,17 @@
+.RainbowFrameHOC {
+    width: 620px;
+}
+.RainbowFrameHOC .content {
+    text-align: center;
+    font-size: 24px;
+    margin: 10px 0;
+}
+.RainbowFrameHOC .border {
+    padding: 8px;
+}
+.DoubleButton {
+    padding-bottom: 22px;
+}
+.RainbowFrameHOC .border .DoubleButton {
+    padding-bottom: 0;
+}
