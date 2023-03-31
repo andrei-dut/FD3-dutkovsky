@@ -3,9 +3,9 @@ import ReactDOM from "react-dom";
 
 import Filter from "./components/Filter";
 
-let stringList = ['california', 'everything', 'aboveboard', 'washington', 'basketball', 'weathering', 'characters', 'literature', 'contraband', 'appreciate'];
+let wordsList = ['california', 'everything', 'aboveboard', 'washington', 'basketball', 'weathering', 'characters', 'literature', 'contraband', 'appreciate'];
 
 ReactDOM.render(
-  <Filter stringList={stringList}/>,
+  <Filter wordsList={wordsList}/>,
   document.getElementById("container")
 );

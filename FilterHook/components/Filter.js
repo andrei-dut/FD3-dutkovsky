@@ -1,39 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import "./Filter.css"
+import "./Filter.css";
 
-const Filter = ({ stringList }) => {
-console.log(stringList)
-  const [localState, setLocalState] = useState({
-    inputValue: "",
-    checkboxValue: false,
-    stringList,
+const Filter = (props) => {
+  const [controls, setControls] = useState({
+    filter: "",
+    sort: false,
   });
+  const [wordsList, setWordsList] = useState([]);
 
-  const handlerTools = (key) =>  (e) => {
+  const handlerControls = (key) => (e) => {
     let target = e.target;
     switch (key) {
-      case "checkbox":
-        setLocalState(state => ({...state, checkboxValue: target.checked}));
+      case "sort":
+        setControls((state) => ({ ...state, sort: target.checked }));
         break;
-      case "text":
-        setLocalState(state => ({...state, inputValue: target.value}));
+      case "filter":
+       
+        setControls((state) => ({ ...state, filter: target.value }));
         break;
       case "reset":
-        setLocalState({
-          inputValue: "",
-          checkboxValue: false,
-          stringList,
-        })
+        setControls({
+          filter: "",
+          sort: false,
+          wordsList,
+        });
         break;
-    
+
       default:
         break;
     }
-  }
+  };
 
+  useEffect(() => {
+    let newWordsList = [...props.wordsList];
+    if (controls.sort) newWordsList.sort();
+    if (controls.filter)
+      newWordsList = newWordsList.filter((word) => word.includes(controls.filter));
 
-  let stringListDOM = localState.stringList.map((elem) => (
+      setWordsList(newWordsList);
+  }, [controls.sort, controls.filter]);
+
+  let stringListDOM = wordsList.map((elem) => (
     <div className="list__string" key={elem}>
       {elem}
     </div>
@@ -42,14 +50,18 @@ console.log(stringList)
   return (
     <div className="Filter">
       <div className="Filter-tools">
-        <input type="checkbox" checked onChange={handlerTools("checkbox")} />
+        <input
+          type="checkbox"
+          checked={controls.sort}
+          onChange={handlerControls("sort")}
+        />
         <input
           className="tools__text"
           type="text"
-          checked
-          onChange={handlerTools("text")}
+          value={controls.filter}
+          onChange={handlerControls("filter")}
         />
-        <button onClick={handlerTools("reset")}>Сброс</button>
+        <button onClick={handlerControls("reset")}>Сброс</button>
       </div>
       <div className="Filter-list">{stringListDOM}</div>
     </div>
